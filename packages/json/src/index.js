@@ -9,7 +9,7 @@ export default function json(options = {}) {
 
     // eslint-disable-next-line no-shadow
     transform(json, id) {
-      if (id.slice(-5) !== '.json' || !filter(id)) return null;
+      if (id.search(/\.[a-z]*json$/) === -1 || !filter(id)) return null;
 
       return {
         code: dataToEsm(JSON.parse(json), {
